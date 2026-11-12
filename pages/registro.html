@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro — FeriaZone</title>
+  <!-- Favicon / Icono del tabulador del navegador -->
+  <link rel="icon" type="image/png" href="../images/logo.png">
+  <link rel="apple-touch-icon" href="../images/logo.png">
+  <link rel="shortcut icon" href="../favicon.ico">
+  <meta name="description" content="Sumate a FeriaZone y elegí tu rol como comprador, feriante artesanal u organizador de ferias en Río Cuarto.">
+
+  <!-- Script anti-parpadeo FOUC -->
+  <script>
+    (function() {
+      try {
+        var theme = localStorage.getItem('fz_theme');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (theme === 'dark' || (!theme && prefersDark)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-accent selection:text-white bg-[#E2EBF1] dark:bg-[#121A2C] text-ink dark:text-white transition-colors">
+
+  <!-- Navbar inyectada -->
+  <div id="navbar-placeholder"></div>
+
+  <!-- Contenedor Principal (Mobile-First y Centrado en Desktop) -->
+  <main class="flex-grow flex items-center justify-center px-4 py-8 sm:py-12">
+    <div class="w-full max-w-md mx-auto space-y-6 sm:space-y-8">
+      
+      <!-- ============================================== -->
+      <!-- LOGO SUPERIOR Y SELECTOR DE PESTAÑAS (FIGMA)   -->
+      <!-- ============================================== -->
+      <div class="flex flex-col items-center space-y-5 text-center">
+        <!-- Logo Circular -->
+        <a href="../index.html" class="inline-block group" aria-label="Volver al inicio">
+          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden bg-white dark:bg-slate-800 border-2 border-sand/50 shadow-md group-hover:scale-105 transition-transform p-0.5">
+            <img 
+              src="../imagenes/logo.png" 
+              alt="Logo FeriaZone" 
+              class="w-full h-full object-cover rounded-full"
+              onerror="this.onerror=null; this.src='../images/logo.png';"
+            >
+          </div>
+        </a>
+
+        <!-- Pestañas Segmentadas: Iniciar Sesión / Registrarse -->
+        <div class="inline-flex items-center p-1 rounded-full bg-[#506580] dark:bg-slate-800 shadow-inner">
+          <a href="./login.html" class="px-5 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-medium text-white/90 hover:text-white transition-all">
+            Iniciar Sesion
+          </a>
+          <a href="./registro.html" class="px-5 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-bold bg-[#E2EBF1] text-ink shadow-xs transition-all">
+            Registrarse
+          </a>
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- ENCABEZADO DE BIENVENIDA                       -->
+      <!-- ============================================== -->
+      <div class="text-left space-y-1">
+        <h1 class="text-2xl sm:text-3xl font-black text-[#1E2B55] dark:text-[#A7BFD4] font-heading tracking-tight">
+          ¡Sumate a FeriaZone!
+        </h1>
+        <p class="text-xs sm:text-sm text-ink-muted dark:text-slate-300">
+          Para empezar, contanos qué querés hacer en la plataforma.
+        </p>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- TARJETAS DE SELECCIÓN DE ROL (100% SVG FIGMA)  -->
+      <!-- ============================================== -->
+      <div class="space-y-3.5" role="radiogroup" aria-label="Seleccioná tu rol">
+        
+        <!-- Opción 1: Quiero comprar (Rol: usuario) -->
+        <div 
+          data-role-card="usuario" 
+          class="role-card bg-[#E2EBF1]/60 dark:bg-slate-800/80 hover:bg-[#E2EBF1] dark:hover:bg-slate-800 border-2 border-transparent rounded-2xl p-4 sm:p-4.5 flex items-center justify-between cursor-pointer transition-all duration-200 select-none shadow-2xs"
+          tabindex="0"
+          role="radio"
+          aria-checked="true"
+        >
+          <div class="flex items-center gap-3.5 pr-2">
+            <!-- Icono SVG Bolsa de Compras -->
+            <div class="w-11 h-11 rounded-xl bg-primary/15 text-primary dark:text-sand-light flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+              </svg>
+            </div>
+            <div>
+              <h2 class="text-sm sm:text-base font-bold text-ink dark:text-white font-heading leading-tight">
+                Quiero comprar
+              </h2>
+              <p class="text-[11px] sm:text-xs text-slate-600 dark:text-slate-300 mt-0.5 leading-snug">
+                Explorar ferias, guardar productos y contactar feriantes.
+              </p>
+            </div>
+          </div>
+          <!-- Indicador Radio SVG -->
+          <div class="radio-indicator flex-shrink-0 w-6 h-6 rounded-full border-2 border-primary bg-white flex items-center justify-center transition-all">
+            <div class="radio-dot w-3 h-3 rounded-full bg-primary"></div>
+          </div>
+        </div>
+
+        <!-- Opción 2: Soy Feriante (Rol: feriante) -->
+        <div 
+          data-role-card="feriante" 
+          class="role-card bg-[#E2EBF1]/60 dark:bg-slate-800/80 hover:bg-[#E2EBF1] dark:hover:bg-slate-800 border-2 border-transparent rounded-2xl p-4 sm:p-4.5 flex items-center justify-between cursor-pointer transition-all duration-200 select-none shadow-2xs"
+          tabindex="0"
+          role="radio"
+          aria-checked="false"
+        >
+          <div class="flex items-center gap-3.5 pr-2">
+            <!-- Icono SVG Puesto / Tienda Ferial -->
+            <div class="w-11 h-11 rounded-xl bg-accent/15 text-accent dark:text-accent-light flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h18l-2 9H5L3 3zm0 9l2 9h14l2-9M9 21V12m6 9V12"></path>
+              </svg>
+            </div>
+            <div>
+              <h2 class="text-sm sm:text-base font-bold text-ink dark:text-white font-heading leading-tight">
+                Soy Feriante
+              </h2>
+              <p class="text-[11px] sm:text-xs text-slate-600 dark:text-slate-300 mt-0.5 leading-snug">
+                Crear mi perfil, subir mi catálogo y unirme a ferias.
+              </p>
+            </div>
+          </div>
+          <!-- Indicador Radio SVG -->
+          <div class="radio-indicator flex-shrink-0 w-6 h-6 rounded-full border-2 border-slate-400 bg-white flex items-center justify-center transition-all">
+            <div class="radio-dot w-3 h-3 rounded-full bg-primary hidden"></div>
+          </div>
+        </div>
+
+        <!-- Opción 3: Soy Organizador (Rol: organizador) -->
+        <div 
+          data-role-card="organizador" 
+          class="role-card bg-[#E2EBF1]/60 dark:bg-slate-800/80 hover:bg-[#E2EBF1] dark:hover:bg-slate-800 border-2 border-transparent rounded-2xl p-4 sm:p-4.5 flex items-center justify-between cursor-pointer transition-all duration-200 select-none shadow-2xs"
+          tabindex="0"
+          role="radio"
+          aria-checked="false"
+        >
+          <div class="flex items-center gap-3.5 pr-2">
+            <!-- Icono SVG Portapapeles / Credencial de Organizador -->
+            <div class="w-11 h-11 rounded-xl bg-sand-dark/20 text-ink dark:text-sand-light flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+              </svg>
+            </div>
+            <div>
+              <h2 class="text-sm sm:text-base font-bold text-ink dark:text-white font-heading leading-tight">
+                Soy Organizador
+              </h2>
+              <p class="text-[11px] sm:text-xs text-slate-600 dark:text-slate-300 mt-0.5 leading-snug">
+                Crear eventos, gestionar espacios y aceptar feriantes.
+              </p>
+            </div>
+          </div>
+          <!-- Indicador Radio SVG -->
+          <div class="radio-indicator flex-shrink-0 w-6 h-6 rounded-full border-2 border-slate-400 bg-white flex items-center justify-center transition-all">
+            <div class="radio-dot w-3 h-3 rounded-full bg-primary hidden"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ============================================== -->
+      <!-- CAMPOS OPCIONALES DE PERSONALIZACIÓN           -->
+      <!-- ============================================== -->
+      <div id="details-toggle-container" class="pt-1">
+        <button 
+          id="toggle-custom-fields-btn" 
+          type="button" 
+          class="text-xs text-slate-500 hover:text-primary flex items-center gap-1 font-medium transition-colors cursor-pointer"
+        >
+          <span>Personalizar nombre y datos de contacto</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+
+        <div id="custom-fields" class="hidden pt-3 space-y-3">
+          <div class="relative flex items-center border-b border-slate-300 dark:border-slate-700 py-1.5">
+            <input 
+              type="text" 
+              id="reg-custom-name" 
+              placeholder="Tu Nombre o Emprendimiento"
+              class="w-full bg-transparent text-xs sm:text-sm text-ink dark:text-white placeholder:text-slate-400 focus:outline-none"
+            >
+          </div>
+          <div class="relative flex items-center border-b border-slate-300 dark:border-slate-700 py-1.5">
+            <input 
+              type="email" 
+              id="reg-custom-email" 
+              placeholder="Tu Correo Electrónico"
+              class="w-full bg-transparent text-xs sm:text-sm text-ink dark:text-white placeholder:text-slate-400 focus:outline-none"
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- BOTÓN PRINCIPAL: CONTINUAR                     -->
+      <!-- ============================================== -->
+      <div class="pt-2">
+        <button 
+          id="btn-continuar" 
+          type="button" 
+          class="w-full py-3.5 px-6 rounded-2xl sm:rounded-full bg-primary hover:bg-primary-dark text-white font-bold text-base sm:text-lg shadow-md active:scale-[0.98] transition-all cursor-pointer"
+        >
+          Continuar
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer inyectado -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Lógica modular de Registro -->
+  <script type="module" src="../js/pages/registro.js"></script>
+</body>
+</html>

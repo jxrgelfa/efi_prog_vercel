@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto y Canales de Atención — FeriaZone</title>
+  <!-- Favicon / Icono del tabulador del navegador -->
+  <link rel="icon" type="image/png" href="../images/logo.png">
+  <link rel="apple-touch-icon" href="../images/logo.png">
+  <link rel="shortcut icon" href="../favicon.ico">
+  
+  <script>
+    (function() {
+      try {
+        var theme = localStorage.getItem('fz_theme');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (theme === 'dark' || (!theme && prefersDark)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-accent selection:text-white bg-[#E2EBF1] dark:bg-[#121A2C] text-ink dark:text-white transition-colors">
+
+  <div id="navbar-placeholder"></div>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-grow w-full space-y-12">
+    
+    <div class="text-center max-w-2xl mx-auto space-y-2">
+      <span class="text-xs font-bold text-accent uppercase tracking-widest">Atención a la Comunidad</span>
+      <h1 class="text-3xl sm:text-5xl font-black text-[#1E2B55] dark:text-[#A7BFD4] font-heading">
+        Contacto y Soporte
+      </h1>
+      <p class="text-base text-ink-muted dark:text-slate-300">
+        Estamos en Río Cuarto para acompañar a feriantes, vecinos y organizadores.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- Datos Institucionales -->
+      <div class="lg:col-span-5 space-y-6">
+        <div class="card-surface p-6 sm:p-8 space-y-6 border border-sand/40">
+          <h2 class="text-xl font-bold text-[#1E2B55] dark:text-[#A7BFD4] font-heading border-b border-sand/30 pb-3">
+            Datos de la Empresa
+          </h2>
+
+          <ul class="space-y-4 text-sm text-ink-muted dark:text-slate-300">
+            <li class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-lg bg-accent/15 text-accent flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+              </div>
+              <div>
+                <strong class="text-ink dark:text-white block">Sede Central:</strong>
+                <span>Calle San Martín 1450, Barrio Alberdi, Río Cuarto, Córdoba</span>
+              </div>
+            </li>
+
+            <li class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                </svg>
+              </div>
+              <div>
+                <strong class="text-ink dark:text-white block">WhatsApp Business:</strong>
+                <a href="https://wa.me/5493584123890" target="_blank" class="text-accent hover:underline font-bold">+54 9 358 412-3890</a>
+              </div>
+            </li>
+
+            <li class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-lg bg-accent/15 text-accent flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+              </div>
+              <div>
+                <strong class="text-ink dark:text-white block">Correo de Soporte:</strong>
+                <a href="mailto:soporte.feriazone@gmail.com" class="text-accent hover:underline">soporte.feriazone@gmail.com</a>
+              </div>
+            </li>
+
+            <li class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-lg bg-primary/15 text-primary flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10" stroke-width="2"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12" stroke-width="2"></line>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+              </div>
+              <div>
+                <strong class="text-ink dark:text-white block">Sitio Oficial:</strong>
+                <span>www.feriazone.com.ar</span>
+              </div>
+            </li>
+          </ul>
+
+          <!-- Acceso al Formulario Google Feedback -->
+          <div class="p-4 rounded-2xl bg-sand/20 dark:bg-slate-800 border border-sand/40 space-y-2">
+            <span class="text-xs font-bold text-accent uppercase tracking-wider block">Tu Opinión nos Suma</span>
+            <p class="text-xs text-ink-muted dark:text-slate-300">
+              Completá nuestra encuesta rápida para mejorar la plataforma de ferias.
+            </p>
+            <a href="https://forms.gle/FeriaZoneFeedback" target="_blank" class="btn-accent text-xs py-2 px-4 inline-flex items-center gap-1 shadow-sm font-bold">
+              <span>Abrir Google Form</span>
+              <span>↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulario de Mensaje Web -->
+      <div class="lg:col-span-7">
+        <div class="card-surface p-6 sm:p-8 space-y-6 border border-sand/40">
+          <h2 class="text-xl font-bold text-[#1E2B55] dark:text-[#A7BFD4] font-heading">
+            Envianos un Mensaje
+          </h2>
+
+          <form id="contact-form" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-ink dark:text-white mb-1">Nombre Completo</label>
+                <input type="text" required placeholder="Tu nombre" class="w-full px-4 py-2.5 rounded-xl border border-sand/60 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm">
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-ink dark:text-white mb-1">Teléfono / WhatsApp</label>
+                <input type="tel" required placeholder="+54 9 358..." class="w-full px-4 py-2.5 rounded-xl border border-sand/60 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-ink dark:text-white mb-1">Correo Electrónico</label>
+              <input type="email" required placeholder="tuemail@ejemplo.com" class="w-full px-4 py-2.5 rounded-xl border border-sand/60 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm">
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-ink dark:text-white mb-1">Motivo del Contacto</label>
+              <select class="w-full px-4 py-2.5 rounded-xl border border-sand/60 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm">
+                <option value="duda">Consulta general sobre una feria</option>
+                <option value="feriante">Quiero publicar mis productos como feriante</option>
+                <option value="organizador">Soy organizador y quiero registrar un evento</option>
+                <option value="promocion">Deseo contratar paquetes de promoción</option>
+                <option value="otro">Otro asunto</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-ink dark:text-white mb-1">Mensaje</label>
+              <textarea rows="4" required placeholder="Escribí tu consulta acá..." class="w-full px-4 py-2.5 rounded-xl border border-sand/60 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm"></textarea>
+            </div>
+
+            <button type="submit" class="btn-accent py-3 px-6 text-sm font-bold shadow-md cursor-pointer">
+              Enviar Mensaje
+            </button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script type="module">
+    import { renderNavbar } from '../js/components/navbar.js';
+    import { renderFooter } from '../js/components/footer.js';
+    import { showToast } from '../js/components/toast.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderNavbar();
+      renderFooter();
+
+      document.getElementById('contact-form')?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        showToast('¡Gracias por tu mensaje! El equipo de FeriaZone te responderá a la brevedad.', 'success');
+        e.target.reset();
+      });
+    });
+  </script>
+</body>
+</html>

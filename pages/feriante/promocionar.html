@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contratar Promociones — FeriaZone</title>
+  <!-- Favicon / Icono del tabulador del navegador -->
+  <link rel="icon" type="image/png" href="../../images/logo.png">
+  <link rel="apple-touch-icon" href="../../images/logo.png">
+  <link rel="shortcut icon" href="../../favicon.ico">
+  
+  <script>
+    (function() {
+      try {
+        var theme = localStorage.getItem('fz_theme');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (theme === 'dark' || (!theme && prefersDark)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-accent selection:text-white bg-[#E2EBF1] dark:bg-[#121A2C] text-ink dark:text-white transition-colors">
+
+  <div id="navbar-placeholder"></div>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-grow w-full space-y-12">
+    
+    <div class="border-b border-sand/30 pb-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
+      <div>
+        <nav class="flex items-center gap-2 text-xs font-semibold text-ink-muted dark:text-slate-400 mb-2">
+          <a href="../../index.html" class="hover:text-accent flex items-center gap-1 transition-colors">
+            <svg class="w-3.5 h-3.5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+            </svg>
+            <span>Inicio</span>
+          </a>
+          <span class="text-sand-dark">/</span>
+          <a href="./index.html" class="hover:text-accent transition-colors">Panel de Feriante</a>
+          <span class="text-sand-dark">/</span>
+          <span class="text-ink dark:text-white">Promociones</span>
+        </nav>
+        <h1 class="text-3xl sm:text-4xl font-black text-[#1E2B55] dark:text-[#A7BFD4] font-heading">
+          Servicio de Promoción para Feriantes
+        </h1>
+        <p class="text-sm text-ink-muted dark:text-slate-300 mt-1">
+          Aumentá la visibilidad de tus productos artesanales en la Home, en la Tienda o en el mapa.
+        </p>
+      </div>
+
+      <div class="p-3 rounded-xl bg-accent/10 border border-accent/30 text-xs text-accent font-bold">
+        Pago Simulado · Sin Tarjeta Real
+      </div>
+    </div>
+
+    <!-- MIS PROMOCIONES ACTIVAS Y RESULTADOS -->
+    <section class="card-surface p-6 sm:p-8 space-y-4 border border-sand/40">
+      <h2 class="text-xl font-bold text-[#1E2B55] dark:text-[#A7BFD4] font-heading">Mis Promociones Activas</h2>
+      <div id="active-promos-container" class="space-y-3">
+        <!-- Inyección dinámica -->
+      </div>
+    </section>
+
+    <!-- CONTRATADOR DE NUEVA PROMOCIÓN -->
+    <section class="space-y-6">
+      <div>
+        <h2 class="text-2xl font-bold text-[#1E2B55] dark:text-[#A7BFD4] font-heading">Elegí tu Paquete de Impulso</h2>
+        <p class="text-xs text-ink-muted dark:text-slate-400">Seleccioná qué querés destacar y por cuántos días.</p>
+      </div>
+
+      <div id="packages-cards-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Dinámico con opciones de 7, 15 y 30 días -->
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script type="module" src="../../js/pages/promocionar.js"></script>
+</body>
+</html>

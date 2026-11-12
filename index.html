@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FeriaZone — El Mercado y Guía de Ferias de Río Cuarto</title>
+  <!-- Favicon / Icono del tabulador del navegador -->
+  <link rel="icon" type="image/png" href="./images/logo.png">
+  <link rel="apple-touch-icon" href="./images/logo.png">
+  <link rel="shortcut icon" href="./favicon.ico">
+  <meta name="description" content="Plataforma de ferias, productos artesanales y emprendedores locales de Río Cuarto, Córdoba. Comprá directo al productor y encontrá tu feria más cercana.">
+
+  <!-- Script anti-parpadeo FOUC -->
+  <script>
+    (function() {
+      try {
+        var theme = localStorage.getItem('fz_theme');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (theme === 'dark' || (!theme && prefersDark)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-accent selection:text-white bg-[#E2EBF1] dark:bg-[#121A2C] text-ink dark:text-white transition-colors">
+
+  <!-- ============================================== -->
+  <!-- NAVBAR INYECTADA (Mobile-First + Desktop Figma) -->
+  <!-- ============================================== -->
+  <div id="navbar-placeholder"></div>
+
+  <main class="flex-grow pb-16">
+
+    <!-- ============================================== -->
+    <!-- 1. COMPONENTE HERO CAROUSEL (Full-Width Edge to Edge) -->
+    <!-- Se adapta al 100% del ancho en Mobile y Desktop -->
+    <!-- ============================================== -->
+    <section class="w-full relative overflow-hidden bg-slate-900">
+      <div id="hero-carousel-container" class="w-full">
+        <!-- Renderizado dinámico vía heroCarousel.js -->
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 2. COMPONENTE FERIANTES DESTACADOS             -->
+    <!-- Carrusel estilo Instagram Stories adaptado a celulares -->
+    <!-- ============================================== -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-10 pb-4">
+      <div id="featured-merchants-container">
+        <!-- Renderizado dinámico vía featuredMerchants.js -->
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 3. COMPONENTE PRÓXIMAS FERIAS                  -->
+    <!-- Tarjetas responsivas según diseño de Figma     -->
+    <!-- ============================================== -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-6">
+      <div class="flex items-center justify-between">
+        <div>
+          <h2 class="text-xl sm:text-2xl md:text-3xl font-black text-[#1E2B55] dark:text-[#A7BFD4] font-heading tracking-tight">
+            Proximas Ferias
+          </h2>
+          <p class="text-xs sm:text-sm text-ink-muted dark:text-slate-300 mt-0.5">
+            Agenda cultural y paseos artesanales en Río Cuarto
+          </p>
+        </div>
+        <a href="./pages/ferias.html" class="text-xs sm:text-sm font-bold text-accent hover:underline flex items-center gap-1">
+          <span>Ver todas</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <!-- Grilla de Próximas Ferias (Mobile 1 columna, Desktop 3 columnas) -->
+      <div id="home-fairs-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <!-- Renderizado dinámico vía home.js -->
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 4. PRODUCTOS DESTACADOS (PROMOCIONES)          -->
+    <!-- ============================================== -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 pt-6 border-t border-sand/30 dark:border-slate-800">
+      <div class="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4">
+        <div>
+          <span class="text-xs uppercase tracking-widest font-bold text-accent">Servicio de Promoción</span>
+          <h2 class="text-xl sm:text-2xl md:text-3xl font-black text-[#1E2B55] dark:text-[#A7BFD4] font-heading">
+            Productos Destacados de la Semana
+          </h2>
+          <p class="text-sm text-ink-muted dark:text-slate-300 mt-1">
+            Artesanías y accesorios elegidos por nuestros feriantes locales.
+          </p>
+        </div>
+        <a href="./pages/tienda.html" class="text-accent font-bold text-sm hover:underline flex items-center gap-1">
+          Ver toda la tienda →
+        </a>
+      </div>
+
+      <!-- Grilla de Productos Destacados -->
+      <div id="home-featured-products" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Renderizado dinámico -->
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 6. LLAMADO A LA ACCIÓN (CTA)                   -->
+    <!-- ============================================== -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+      <div class="bg-primary text-white rounded-3xl p-8 sm:p-12 shadow-xl border border-sand/30 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8">
+        <div class="space-y-3 max-w-xl text-center md:text-left z-10">
+          <span class="px-3 py-1 rounded-full bg-moss-dark text-white text-xs font-bold uppercase tracking-wider">
+            Sin Comisión por Venta
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-black font-heading leading-tight text-white !text-white">
+            ¿Tenés un emprendimiento o producís artesanías?
+          </h2>
+          <p class="text-white/90 text-sm sm:text-base leading-relaxed">
+            Sumate hoy a la vidriera digital de Río Cuarto. Creá tu cuenta de prueba y mostrá tus creaciones a toda la comunidad.
+          </p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto z-10">
+          <a href="./pages/registro.html" class="btn-accent text-center px-6 py-3 font-bold text-base shadow">
+            Registrarme como Feriante
+          </a>
+          <a href="./pages/login.html" class="btn-outline bg-white/10 hover:bg-white/20 text-white border-white/20 text-center px-5 py-3">
+            Ver Demo en Vivo
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer inyectado -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Script modular de la Home -->
+  <script type="module" src="./js/pages/home.js"></script>
+</body>
+</html>

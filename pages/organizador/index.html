@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Organizador — FeriaZone</title>
+  <!-- Favicon / Icono del tabulador del navegador -->
+  <link rel="icon" type="image/png" href="../../images/logo.png">
+  <link rel="apple-touch-icon" href="../../images/logo.png">
+  <link rel="shortcut icon" href="../../favicon.ico">
+  
+  <script>
+    (function() {
+      try {
+        var theme = localStorage.getItem('fz_theme');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (theme === 'dark' || (!theme && prefersDark)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-accent selection:text-white bg-[#E2EBF1] dark:bg-[#121A2C] text-ink dark:text-white transition-colors">
+
+  <div id="navbar-placeholder"></div>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-grow w-full space-y-6">
+    
+    <!-- Breadcrumb de navegación rápida al Inicio -->
+    <nav class="flex items-center gap-2 text-xs font-semibold text-ink-muted dark:text-slate-400">
+      <a href="../../index.html" class="hover:text-accent flex items-center gap-1.5 transition-colors">
+        <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+        </svg>
+        <span>Inicio</span>
+      </a>
+      <span class="text-sand-dark">/</span>
+      <span class="text-ink dark:text-white">Panel de Administrador de Ferias</span>
+    </nav>
+
+    <!-- Header Organizador -->
+    <div class="card-surface p-6 sm:p-8 border border-sand/40 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center space-x-4">
+        <div class="w-16 h-16 rounded-2xl bg-primary/15 text-primary dark:text-[#A7BFD4] flex items-center justify-center shadow-md">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+          </svg>
+        </div>
+        <div>
+          <span class="text-xs font-bold text-accent uppercase tracking-wider">Panel de Administrador de Ferias</span>
+          <h1 id="org-name" class="text-2xl sm:text-3xl font-black text-[#1E2B55] dark:text-[#A7BFD4] font-heading">
+            Coordinación de Ferias y Eventos
+          </h1>
+          <p class="text-xs text-ink-muted dark:text-slate-400">
+            Suscripción: <strong class="text-emerald-600">Activa ($18.000 ARS/mes)</strong> · Soporte 24/7
+          </p>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap gap-2.5">
+        <a href="../../index.html" class="btn-outline text-xs py-2.5 px-4 font-bold flex items-center gap-1.5 shadow-xs hover:border-accent hover:text-accent transition-all cursor-pointer">
+          <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+          </svg>
+          <span>Volver al Inicio</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- TABLERO DE FERIAS ACTIVAS / EDICIÓN -->
+    <section class="space-y-4">
+      <div id="fairs-header" class="flex items-center justify-between">
+        <h2 class="text-xl font-bold text-[#1E2B55] dark:text-[#A7BFD4] font-heading">
+          Ferias bajo tu Coordinación
+        </h2>
+        <button type="button" id="toggle-fairs-btn" class="flex items-center gap-2 text-xs font-semibold text-ink-muted dark:text-slate-300 hover:text-accent dark:hover:text-accent transition-all min-h-touch px-3.5 rounded-xl border border-sand/40 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-xs hover:border-accent cursor-pointer" aria-expanded="true" aria-controls="fairs-table-container">
+          <span class="toggle-text">Minimizar</span>
+          <svg class="w-4 h-4 transition-transform duration-200 transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+      </div>
+
+      <div id="fairs-table-container" class="card-surface overflow-x-auto border border-sand/40">
+        <table class="w-full text-left text-xs sm:text-sm">
+          <thead class="bg-sand/30 dark:bg-slate-800 text-ink dark:text-sand-light uppercase text-[11px] font-bold border-b border-sand/30">
+            <tr>
+              <th class="p-3.5">Feria</th>
+              <th class="p-3.5">Lugar</th>
+              <th class="p-3.5">Horarios</th>
+              <th class="p-3.5">Puestos</th>
+              <th class="p-3.5">Visibilidad</th>
+              <th class="p-3.5 text-right">Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="org-fairs-tbody" class="divide-y divide-sand/20 dark:divide-slate-800">
+            <!-- Dinámico -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- FORMULARIO CREAR / EDITAR FERIA CON CLIC EN MAPA -->
+    <section id="create-fair-section" class="card-surface p-6 sm:p-8 space-y-6 border border-sand/40">
+      <div id="create-fair-header" class="flex items-start justify-between border-b border-sand/30 pb-3 gap-4">
+        <div>
+          <h3 class="text-xl font-bold text-[#1E2B55] dark:text-[#A7BFD4] font-heading">
+            Crear o Editar Convocatoria de Feria
+          </h3>
+          <p class="text-xs text-ink-muted dark:text-slate-400 mt-1">
+            Hacé clic en el mapa de Río Cuarto para fijar las coordenadas exactas de los puestos.
+          </p>
+        </div>
+        <button type="button" id="toggle-form-btn" class="flex-shrink-0 flex items-center gap-2 text-xs font-semibold text-ink-muted dark:text-slate-300 hover:text-accent dark:hover:text-accent transition-all min-h-touch px-3.5 rounded-xl border border-sand/40 dark:border-slate-700 bg-sand/15 dark:bg-slate-800 shadow-xs hover:border-accent cursor-pointer" aria-expanded="true" aria-controls="fair-form-container">
+          <span class="toggle-text">Minimizar</span>
+          <svg class="w-4 h-4 transition-transform duration-200 transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+      </div>
+
+      <div id="fair-form-container">
+        <form id="fair-form" class="space-y-4">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-ink dark:text-white mb-1">Nombre de la Feria</label>
+              <input type="text" id="fair-input-name" required placeholder="Ej: Feria Cultural Paseo Peatonal" class="w-full px-3.5 py-2 rounded-xl border border-sand/60 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm">
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-ink dark:text-white mb-1">Ubicación / Punto Físico</label>
+              <input type="text" id="fair-input-location" required placeholder="Ej: Plaza Central, Río Cuarto" class="w-full px-3.5 py-2 rounded-xl border border-sand/60 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-ink dark:text-white mb-1">Zona Barrial</label>
+              <input type="text" id="fair-input-zone" required placeholder="Ej: Macrocentro / Alberdi" class="w-full px-3.5 py-2 rounded-xl border border-sand/60 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm">
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-ink dark:text-white mb-1">Días y Horarios</label>
+              <input type="text" id="fair-input-schedule" required placeholder="Ej: Sábados y Domingos 16 a 21 hs" class="w-full px-3.5 py-2 rounded-xl border border-sand/60 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm">
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-ink dark:text-white mb-1">Capacidad Total de Puestos</label>
+              <input type="number" id="fair-input-capacity" required min="5" value="30" class="w-full px-3.5 py-2 rounded-xl border border-sand/60 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm">
+            </div>
+          </div>
+
+          <!-- Coordenadas elegidas por clic -->
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-ink dark:text-white mb-1">Latitud (Clic en mapa)</label>
+              <input type="text" id="fair-input-lat" required readonly value="-33.123" class="w-full px-3.5 py-2 rounded-xl border border-sand/60 bg-sand/15 text-sm font-mono">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-ink dark:text-white mb-1">Longitud (Clic en mapa)</label>
+              <input type="text" id="fair-input-lng" required readonly value="-64.349" class="w-full px-3.5 py-2 rounded-xl border border-sand/60 bg-sand/15 text-sm font-mono">
+            </div>
+          </div>
+
+          <!-- Mapa interactivo para selección con clic -->
+          <div>
+            <label class="block text-xs font-bold text-ink dark:text-white mb-1">Hacé clic sobre el mapa para fijar el punto:</label>
+            <div id="org-picker-map" class="h-64 rounded-2xl border border-sand/40 overflow-hidden z-10"></div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-ink dark:text-white mb-1">Servicios (separados por coma)</label>
+            <input type="text" id="fair-input-services" value="Baños químicos, Bajada de electricidad, Seguridad, Patio gastronómico" class="w-full px-3.5 py-2 rounded-xl border border-sand/60 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm">
+          </div>
+
+          <button type="submit" class="btn-accent py-3 px-6 text-sm font-bold shadow-md cursor-pointer">
+            Guardar y Publicar Feria en el Mapa Público
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- SOPORTE Y FORMULARIO HACIA LOS DESARROLLADORES -->
+    <section class="card-surface p-6 sm:p-8 space-y-4 border border-sand/40 max-w-2xl">
+      <div id="support-header" class="flex items-start justify-between border-b border-sand/30 pb-3 gap-4">
+        <div>
+          <h3 class="text-lg font-bold text-[#1E2B55] dark:text-[#A7BFD4] font-heading">
+            Soporte Técnico hacia Desarrolladores
+          </h3>
+          <p class="text-xs text-ink-muted dark:text-slate-400 mt-1">
+            ¿Tenés dudas técnicas o necesitás asistencia con el mapa? Envianos un ticket directo.
+          </p>
+        </div>
+        <button type="button" id="toggle-support-btn" class="flex-shrink-0 flex items-center gap-2 text-xs font-semibold text-ink-muted dark:text-slate-300 hover:text-accent dark:hover:text-accent transition-all min-h-touch px-3.5 rounded-xl border border-sand/40 dark:border-slate-700 bg-sand/15 dark:bg-slate-800 shadow-xs hover:border-accent cursor-pointer" aria-expanded="true" aria-controls="support-form-container">
+          <span class="toggle-text">Minimizar</span>
+          <svg class="w-4 h-4 transition-transform duration-200 transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+      </div>
+
+      <div id="support-form-container">
+        <form id="org-support-form" class="space-y-3">
+          <div>
+            <label class="block text-xs font-bold text-ink dark:text-white mb-1">Asunto</label>
+            <input type="text" required placeholder="Ej: Consulta por cupo adicional de stands" class="w-full px-3.5 py-2 rounded-xl border border-sand/60 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-ink dark:text-white mb-1">Mensaje</label>
+            <textarea rows="3" required placeholder="Detallá tu solicitud para el equipo técnico del EFI..." class="w-full px-3.5 py-2 rounded-xl border border-sand/60 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm"></textarea>
+          </div>
+          <button type="submit" class="btn-primary py-2 px-5 text-xs font-bold cursor-pointer">
+            Enviar Ticket a Soporte
+          </button>
+        </form>
+      </div>
+    </section>
+
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script type="module" src="../../js/pages/panelOrganizador.js"></script>
+</body>
+</html>

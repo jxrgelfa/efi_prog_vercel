@@ -1,0 +1,12 @@
+# Dependencias
+node_modules/
+
+# Temporales y caches
+tmp/
+.DS_Store
+*.log
+.vercel
+
+# Entorno y credenciales
+.env
+.env.local

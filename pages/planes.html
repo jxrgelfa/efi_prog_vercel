@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planes y Promociones — FeriaZone</title>
+  <!-- Favicon / Icono del tabulador del navegador -->
+  <link rel="icon" type="image/png" href="../images/logo.png">
+  <link rel="apple-touch-icon" href="../images/logo.png">
+  <link rel="shortcut icon" href="../favicon.ico">
+  
+  <script>
+    (function() {
+      try {
+        var theme = localStorage.getItem('fz_theme');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (theme === 'dark' || (!theme && prefersDark)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-accent selection:text-white bg-[#E2EBF1] dark:bg-[#121A2C] text-ink dark:text-white transition-colors">
+
+  <div id="navbar-placeholder"></div>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-grow w-full space-y-16">
+    
+    <div class="text-center max-w-3xl mx-auto space-y-3">
+      <span class="text-xs font-bold text-accent uppercase tracking-widest">
+        Modelo de Sostenibilidad y Crecimiento
+      </span>
+      <h1 class="text-3xl sm:text-5xl font-black text-[#1E2B55] dark:text-[#A7BFD4] font-heading">
+        Planes y Paquetes de Visibilidad
+      </h1>
+      <p class="text-base text-ink-muted dark:text-slate-300 leading-relaxed">
+        <strong>Sin comisión por venta:</strong> el 100% de tus ventas es tuyo. Ofrecemos herramientas de impulso transparentes para feriantes y organizadores.
+      </p>
+    </div>
+
+    <!-- SECCIÓN 1: PLANES DE PUBLICACIÓN (BÁSICO VS PRO) -->
+    <section class="space-y-6">
+      <div class="text-center">
+        <h2 class="text-2xl font-bold text-[#1E2B55] dark:text-[#A7BFD4] font-heading">
+          Planes de Publicación para Emprendedores
+        </h2>
+        <p class="text-xs text-ink-muted dark:text-slate-400">Elegí la escala que necesita tu catálogo artesanal.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        
+        <!-- Plan Básico (Gratuito) -->
+        <article class="card-surface p-8 border border-sand/50 flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <span class="px-3 py-1 rounded-full text-xs font-bold bg-sand/50 text-ink">Plan Inicial</span>
+            <h3 class="text-2xl font-bold text-[#1E2B55] dark:text-[#A7BFD4] font-heading">Plan Básico</h3>
+            <p class="text-xs text-ink-muted dark:text-slate-300">Ideal para artesanos que están comenzando a digitalizar su puesto.</p>
+            
+            <div class="pt-2">
+              <span class="text-4xl font-black text-[#1E2B55] dark:text-[#A7BFD4] font-heading">$0</span>
+              <span class="text-xs text-ink-muted"> / Para siempre</span>
+            </div>
+
+            <ul class="space-y-2.5 text-xs text-ink dark:text-slate-200 pt-4 border-t border-sand/30">
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span><strong>Hasta 15 productos</strong> publicados</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Perfil público de emprendimiento</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Botón directo a tu WhatsApp</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Postulación a ferias de Río Cuarto</span>
+              </li>
+              <li class="flex items-center gap-2 text-ink-light dark:text-slate-500">
+                <svg class="w-4 h-4 text-slate-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+                <span>Sin insignia destacada en la Home</span>
+              </li>
+            </ul>
+          </div>
+
+          <a href="./login.html" class="btn-outline w-full text-center text-xs py-3 font-bold">
+            Comenzar Gratis
+          </a>
+        </article>
+
+        <!-- Plan Pro (De pago) -->
+        <article class="card-surface p-8 border-2 border-accent relative flex flex-col justify-between space-y-6 shadow-xl">
+          <span class="absolute -top-3 right-6 bg-accent text-white text-[11px] font-bold px-3 py-1 rounded-full shadow-md">
+            Recomendado
+          </span>
+
+          <div class="space-y-4">
+            <span class="px-3 py-1 rounded-full text-xs font-bold bg-accent/20 text-accent">Para Productores Consolidados</span>
+            <h3 class="text-2xl font-bold text-[#1E2B55] dark:text-[#A7BFD4] font-heading">Plan Pro</h3>
+            <p class="text-xs text-ink-muted dark:text-slate-300">Catálogo sin límites, insignia de confianza y analíticas de visitas.</p>
+            
+            <div class="pt-2">
+              <span class="text-4xl font-black text-accent font-heading">$9.500</span>
+              <span class="text-xs text-ink-muted"> ARS / mes</span>
+            </div>
+
+            <ul class="space-y-2.5 text-xs text-ink dark:text-slate-200 pt-4 border-t border-sand/30">
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span><strong>Productos ilimitados</strong> en catálogo</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Insignia oficial de <strong>Feriante Verificado</strong></span>
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Estadísticas avanzadas de clics y pedidos</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Soporte prioritario por WhatsApp</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>15% de descuento en paquetes de promoción</span>
+              </li>
+            </ul>
+          </div>
+
+          <a href="./login.html" class="btn-accent w-full text-center text-xs py-3 font-bold shadow-md">
+            Suscribirme al Plan Pro
+          </a>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SECCIÓN 2: PAQUETES DE PROMOCIÓN TEMPORAL -->
+    <section class="space-y-6 bg-sand/20 dark:bg-slate-900/40 p-8 sm:p-12 rounded-3xl border border-sand/30">
+      <div class="text-center max-w-2xl mx-auto space-y-2">
+        <span class="text-xs font-bold text-accent uppercase tracking-widest">Impulso a Demanda</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-[#1E2B55] dark:text-[#A7BFD4] font-heading">
+          Paquetes de Promoción Temporal
+        </h2>
+        <p class="text-xs text-ink-muted dark:text-slate-300">
+          Contratalos por 7, 15 o 30 días cuando tengas promociones de temporada o ferias especiales.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div class="card-surface p-6 space-y-3 border border-sand/40">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/15 text-amber-600 dark:text-amber-400 flex items-center justify-center">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <circle cx="12" cy="8" r="7" stroke-width="2"></circle>
+              <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" stroke-width="2"></polyline>
+            </svg>
+          </div>
+          <h3 class="font-bold text-lg text-[#1E2B55] dark:text-[#A7BFD4] font-heading">Producto Destacado</h3>
+          <p class="text-xs text-ink-muted dark:text-slate-300">Aparece en la cabecera del catálogo general con insignia dorada.</p>
+          <p class="text-xs font-bold text-accent">Desde $4.500 ARS (7 días)</p>
+        </div>
+
+        <div class="card-surface p-6 space-y-3 border border-sand/40">
+          <div class="w-10 h-10 rounded-xl bg-accent/15 text-accent flex items-center justify-center">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h18l-2 9H5L3 3zm0 9l2 9h14l2-9M9 21V12m6 9V12"></path>
+            </svg>
+          </div>
+          <h3 class="font-bold text-lg text-[#1E2B55] dark:text-[#A7BFD4] font-heading">Vidriera en la Home</h3>
+          <p class="text-xs text-ink-muted dark:text-slate-300">Tu emprendimiento en la portada principal visitada por miles de vecinos.</p>
+          <p class="text-xs font-bold text-accent">Desde $7.500 ARS (7 días)</p>
+        </div>
+
+        <div class="card-surface p-6 space-y-3 border border-sand/40">
+          <div class="w-10 h-10 rounded-xl bg-primary/15 text-primary dark:text-[#A7BFD4] flex items-center justify-center">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
+            </svg>
+          </div>
+          <h3 class="font-bold text-lg text-[#1E2B55] dark:text-[#A7BFD4] font-heading">Impulso en Feria</h3>
+          <p class="text-xs text-ink-muted dark:text-slate-300">Resaltado exclusivo en el mapa de Leaflet y ficha del evento.</p>
+          <p class="text-xs font-bold text-accent">Desde $6.000 ARS (7 días)</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECCIÓN 3: ORGANIZADORES -->
+    <section id="organizadores" class="card-surface p-8 sm:p-12 border border-sand/40 max-w-3xl mx-auto space-y-6 text-center">
+      <span class="text-xs font-bold text-primary dark:text-sand-light uppercase tracking-wider">Para Coordinadores de Ferias</span>
+      <h2 class="text-2xl sm:text-3xl font-black text-[#1E2B55] dark:text-[#A7BFD4] font-heading">
+        Suscripción para Organizadores y Entes Feriales
+      </h2>
+      <p class="text-sm text-ink-muted dark:text-slate-300 leading-relaxed">
+        El ente organizador o vecinal abona un canon mensual de <strong>$18.000 ARS</strong> por el acceso ilimitado al panel de administración: creación de ferias georreferenciadas, recepción de postulaciones de feriantes, control de cupos y soporte continuo.
+      </p>
+      <a href="./contacto.html" class="btn-primary text-xs py-3 px-6 inline-block font-bold">
+        Solicitar Cuenta de Organizador
+      </a>
+    </section>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script type="module">
+    import { renderNavbar } from '../js/components/navbar.js';
+    import { renderFooter } from '../js/components/footer.js';
+    document.addEventListener('DOMContentLoaded', () => {
+      renderNavbar();
+      renderFooter();
+    });
+  </script>
+</body>
+</html>
